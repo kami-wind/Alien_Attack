@@ -1,6 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1715060268
+::res://::1715060641
 icon.svg::CompressedTexture2D::4307040025009921674::1714142741::1714142779::1::::<><>::
+README.md::TextFile::-1::1715060381::0::1::::<><>::
 ::res://Assets/::1714149767
 ::res://Assets/audio/::1714149768
 explode.wav::AudioStreamWAV::5333303538868929974::1714149767::1714149768::1::::<><>::
@@ -15,6 +16,8 @@ enemy_ship_2.png::CompressedTexture2D::2428709089739361211::1714149767::17141497
 orb.png::CompressedTexture2D::2662348937232234360::1714149767::1714149768::1::::<><>::
 player_ship.png::CompressedTexture2D::112487695006853360::1714149767::1714149768::1::::<><>::
 rocket.png::CompressedTexture2D::7697751574954715059::1714149767::1714149768::1::::<><>::
+::res://desktop-tutorial/::1715060290
+README.md::TextFile::-1::1715060290::0::1::::<><>::
 ::res://Scenes/::1715050438
 enemy.tscn::PackedScene::8070780991967340448::1714399497::0::1::::<><>::res://Scripts/enemy.gd<>uid://bga5wd81usrrn::::res://Assets/textures/enemy_ship.png
 enemy_spawner.tscn::PackedScene::254404544957017223::1715014087::0::1::::<><>::res://Scripts/enemy_spawner.gd
