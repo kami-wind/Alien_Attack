@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cemj5hx1oqvob"]
+
+[ext_resource type="Texture2D" uid="uid://buqwkhtuigyi" path="res://Assets/textures/player_ship.png" id="1_40lda"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_lxbf0"]
+[ext_resource type="AudioStream" uid="uid://bexo67owk6iry" path="res://Assets/audio/sfx_laser2.wav" id="3_brn3n"]
+
+[sub_resource type="Gradient" id="Gradient_nk5k7"]
+offsets = PackedFloat32Array(0, 0.536364, 1)
+colors = PackedColorArray(1, 0.816667, 0, 0, 1, 0.380392, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_at16n"]
+gradient = SubResource("Gradient_nk5k7")
+
+[sub_resource type="Curve" id="Curve_s7phf"]
+_data = [Vector2(0, 0.494505), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_36xtw"]
+curve = SubResource("Curve_s7phf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7hclj"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 15, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 30.0
+initial_velocity_min = -200.0
+initial_velocity_max = -200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_36xtw")
+color_ramp = SubResource("GradientTexture1D_at16n")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6hic4"]
+radius = 34.0
+height = 100.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_lxbf0")
+
+[node name="FlameParticleEffect" type="GPUParticles2D" parent="."]
+position = Vector2(-40, 0)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_7hclj")
+lifetime = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_40lda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("CapsuleShape2D_6hic4")
+one_way_collision_margin = 0.0
+debug_color = Color(0.564706, 0.513726, 0.596078, 0.419608)
+
+[node name="Rocket Container" type="Node" parent="."]
+
+[node name="RocketSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_brn3n")
